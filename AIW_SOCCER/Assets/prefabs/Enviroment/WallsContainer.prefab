@@ -353,7 +353,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 50.05, z: 0}
-  m_LocalScale: {x: 100, y: 0.1, z: 126}
+  m_LocalScale: {x: 100.2, y: 0.1, z: 126.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5929481349458409515}
@@ -487,6 +487,8 @@ MonoBehaviour:
   rightWall: {fileID: 2099597442045766089}
   ceiling: {fileID: 7283066572156341308}
   floor: {fileID: 0}
+  OrangeNet: {fileID: 0}
+  BlueNet: {fileID: 0}
   bumpTopLeft: {fileID: 0}
   bumpTopRight: {fileID: 0}
   bumpBottomLeft: {fileID: 0}

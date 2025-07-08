@@ -103,7 +103,7 @@ public class WallsContainer : MonoBehaviour
                 0, 
                 height + thickness / 2f, 
                 0);
-            ceiling.transform.localScale = new Vector3(width, thickness, depth);
+            ceiling.transform.localScale = new Vector3((thickness * 2 + width), thickness, (thickness * 2 + depth));
         }
 
         if (floor != null)
