@@ -88,6 +88,7 @@ public class FootballAgent : Agent
     #region Unity Lifecycle
     public override void Initialize()
     {
+        ballRigidBody = ball.GetComponent<Rigidbody>();
         rigidBody = GetComponent<Rigidbody>();
         cubeEntity = GetComponent<CubeEntity>();
         goalRegisterTarget = netTarget.GetComponentInChildren<GoalRegister>();
