@@ -296,9 +296,13 @@ PrefabInstance:
     - target: {fileID: 1663954570896247945, guid: 7eae3b630258b7946818af14b42f2d4d, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 0cc2a41f9bb81a34e82775dfc77e0376, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1663954570896247945, guid: 7eae3b630258b7946818af14b42f2d4d, type: 3}
       propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704264866900076771, guid: 7eae3b630258b7946818af14b42f2d4d, type: 3}
+      propertyPath: team
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2958794386972622684, guid: 7eae3b630258b7946818af14b42f2d4d, type: 3}
