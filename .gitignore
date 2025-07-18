@@ -7,32 +7,26 @@
 # ----------------------------------------
 # Unity Generated Folders & Files
 # ----------------------------------------
-[Ll]ibrary/           # Unity library cache
-[Tt]emp/              # Temporary files
-[Oo]bj/               # Build object files
-[Bb]uild/             # Build output
-[Bb]uilds/            # Additional build output
-[Ll]ogs/              # Editor logs
-[Uu]ser[Ss]ettings/   # User-specific settings
-sysinfo.txt           # Crash report info
-.utmp/                # Unity temp files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+sysinfo.txt
+.utmp/
 
 # ----------------------------------------
 # General Editor Settings
 # ----------------------------------------
-Layouts/              # Editor layout settings
-
-# ----------------------------------------
-# Blender Asset Imports
-# ----------------------------------------
-*.blend1              # Blender backup files
-*.blend1.meta         # Blender backup meta files
+Layouts/
 
 # ----------------------------------------
 # Large or Sensitive Data
 # ----------------------------------------
-[Mm]emoryCaptures/    # Memory captures (can be large/sensitive)
-[Rr]ecordings/        # Recordings (can be large)
+[Mm]emoryCaptures/
+[Rr]ecordings/
 
 # ----------------------------------------
 # Asset Store Tools (optional)
