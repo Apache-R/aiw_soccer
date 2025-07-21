@@ -110,14 +110,18 @@ public class FootballEnvController : MonoBehaviour
     #region Public Methods
 
     public void ResetBall()
-    {
-        var randomPosX = UnityEngine.Random.Range(-2.5f, 2.5f);
-        var randomPosZ = UnityEngine.Random.Range(-2.5f, 2.5f);
+{
+    if (ball == null || ballRb == null)
+        return;
 
-        ball.transform.position = m_BallStartingPos + new Vector3(randomPosX, 0f, randomPosZ);
-        ballRb.linearVelocity = Vector3.zero;
-        ballRb.angularVelocity = Vector3.zero;
-    }
+    var randomPosX = UnityEngine.Random.Range(-2.5f, 2.5f);
+    var randomPosZ = UnityEngine.Random.Range(-2.5f, 2.5f);
+
+    ball.transform.position = m_BallStartingPos + new Vector3(randomPosX, 0f, randomPosZ);
+    ballRb.linearVelocity = Vector3.zero;
+    ballRb.angularVelocity = Vector3.zero;
+}
+
 
     public void IncrementIterationsCount()
     {
@@ -133,7 +137,11 @@ public class FootballEnvController : MonoBehaviour
 
     public void ResetEnviroment()
     {
+        
         episodeEnded = false;
+
+        // Clean out destroyed agents from the list
+        AgentsList.RemoveAll(a => a.Agent == null || a.Agent.gameObject == null);
 
         foreach (var item in AgentsList)
         {

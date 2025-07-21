@@ -289,7 +289,11 @@ public class FootballAgent : Agent
     #region Event listeners
     public void HandleGoalScored(Net.OnGoalScoredEventArgs e)
     {
-        if (e.envID != cubeEntity.GetEnvID()) return;
+        if (this == null || gameObject == null)
+            return;
+
+        if (cubeEntity == null || e.envID != cubeEntity.GetEnvID())
+            return;
 
         if (e.TeamScored == team)
         {
@@ -302,12 +306,10 @@ public class FootballAgent : Agent
             AddReward(Rewards.GoalConcededPenalty);
             statsRecorder.Add($"Rewards/{name}/GoalConcededPenalty", Rewards.GoalConcededPenalty, StatAggregationMethod.Sum);
         }
-
-        EndEpisode();
-    }
+    }    
     #endregion
 
-    #region Collision Handlers
+        #region Collision Handlers
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.contacts[0].normal.y > 0.5f)
