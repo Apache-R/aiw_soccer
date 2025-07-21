@@ -4,10 +4,18 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private Vector3 resetPosition;
+    private Vector3 initialPosition;
+
+    private void Awake()
+    {
+        initialPosition = transform.localPosition;
+    }
+
     public void ResetPosition()
     {
-        transform.position = resetPosition;
-        transform.rotation = Quaternion.Euler(0, -90, 0);
+        transform.localPosition = initialPosition;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 }

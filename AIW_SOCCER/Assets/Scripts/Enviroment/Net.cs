@@ -12,11 +12,19 @@ public class Net : MonoBehaviour
     private float scoreCooldown = 0.5f; // seconds
     private float lastScoreTime = -1f;
 
+    private int envID; // Environment ID, if needed
+
     // Update event to use NetID in EventArgs
-    static public event EventHandler<OnGoalScoredEventArgs> OnGoalScored;
+    public static event EventHandler<OnGoalScoredEventArgs> OnGoalScored;
     public class OnGoalScoredEventArgs : EventArgs
     {
-        public NetID netID;
+        public Team TeamScored;
+        public int envID; // Optional: if you want to include environment ID
+    }
+
+    private void Start()
+    {
+       envID = FootballEnvController.GetCurrentEnviromentID(gameObject); // Get the environment ID from the parent Enviroment component
     }
 
     // Remove OnCollisionEnter, add RegisterGoal to be called by GoalRegister
@@ -33,7 +41,8 @@ public class Net : MonoBehaviour
     {
         OnGoalScored?.Invoke(this, new OnGoalScoredEventArgs
         {
-            netID = netID
+            TeamScored = netID == NetID.AlbertNet ? Team.Kais : Team.Alberts,
+            envID = envID // Pass the environment ID if needed
         });
     }
 
