@@ -110,7 +110,7 @@ public class FootballEnvController : MonoBehaviour
     #region Public Methods
 
     public void ResetBall()
-{
+
     if (ball == null)
     {
         Debug.LogWarning("Ball has been destroyed; skipping ResetBall");
@@ -130,7 +130,6 @@ public class FootballEnvController : MonoBehaviour
         ballRb.angularVelocity = Vector3.zero;
     }
 }
-
 
     public void IncrementIterationsCount()
     {
