@@ -304,12 +304,10 @@ public class FootballAgent : Agent
             AddReward(Rewards.GoalConcededPenalty);
             statsRecorder.Add($"Rewards/{name}/GoalConcededPenalty", Rewards.GoalConcededPenalty, StatAggregationMethod.Sum);
         }
-
-        EndEpisode();
-    }
+    }    
     #endregion
 
-    #region Collision Handlers
+        #region Collision Handlers
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.contacts[0].normal.y > 0.5f)
