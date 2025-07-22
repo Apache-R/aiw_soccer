@@ -1345,8 +1345,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1804297034}
-  offset: {x: -7, y: 2.5, z: 0}
-  followSpeed: 5
+  offset: {x: 0, y: 2.5, z: -7}
+  rotationOffset: {x: 0.21643962, y: 0, z: 0, w: 0.976296}
+  followSpeed: 30
+  initialFollowSpeed: 2
 --- !u!114 &510359334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,8 +2349,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1101941182}
-  offset: {x: 7, y: 2.5, z: 0}
-  followSpeed: 5
+  offset: {x: 0, y: 2.5, z: -7}
+  rotationOffset: {x: 0.21643962, y: 0, z: 0, w: 0.976296}
+  followSpeed: 30
+  initialFollowSpeed: 2
 --- !u!114 &1497837628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3510,10 +3514,10 @@ SceneRoots:
   - {fileID: 89577779}
   - {fileID: 546268592}
   - {fileID: 271342135}
+  - {fileID: 1873707230}
   - {fileID: 1023044812}
   - {fileID: 139117067}
   - {fileID: 1928753233}
   - {fileID: 3830043915052946398}
   - {fileID: 674214491}
   - {fileID: 612644874}
-  - {fileID: 1873707230}
