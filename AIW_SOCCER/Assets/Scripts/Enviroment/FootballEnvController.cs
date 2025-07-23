@@ -110,14 +110,27 @@ public class FootballEnvController : MonoBehaviour
     #region Public Methods
 
     public void ResetBall()
+{
+    if (ball == null)
     {
-        var randomPosX = UnityEngine.Random.Range(-2.5f, 2.5f);
-        var randomPosZ = UnityEngine.Random.Range(-2.5f, 2.5f);
+        Debug.LogWarning("Ball has been destroyed; skipping ResetBall");
+        return;
+    }
 
-        ball.transform.position = m_BallStartingPos + new Vector3(randomPosX, 0f, randomPosZ);
+    var randomPosX = UnityEngine.Random.Range(-2.5f, 2.5f);
+    var randomPosZ = UnityEngine.Random.Range(-2.5f, 2.5f);
+
+    if (ball.transform == null) return; // transform destroyed
+
+    ball.transform.position = m_BallStartingPos + new Vector3(randomPosX, 0f, randomPosZ);
+
+    if (ballRb != null)
+    {
         ballRb.linearVelocity = Vector3.zero;
         ballRb.angularVelocity = Vector3.zero;
     }
+}
+
 
     public void IncrementIterationsCount()
     {
@@ -132,32 +145,43 @@ public class FootballEnvController : MonoBehaviour
     }
 
     public void ResetEnviroment()
+{
+    episodeEnded = false;
+
+    // Remove destroyed agents from the list
+    AgentsList.RemoveAll(a => a == null || a.Agent == null);
+
+    foreach (var item in AgentsList)
     {
-        episodeEnded = false;
+        if (item.Agent == null) continue; // skip destroyed agent
 
-        foreach (var item in AgentsList)
+        var randomPosZ = UnityEngine.Random.Range(-5f, 5f);
+        var randomPosX = UnityEngine.Random.Range(-1f, 1f);
+        var newStartPos = item.Agent.GetInitialPosition() + new Vector3(randomPosX, 0f, randomPosZ);
+        var rot = UnityEngine.Random.Range(80.0f, 120.0f);
+        var newRot = Quaternion.Euler(0, rot, 0);
+
+        if (item.Agent.transform != null)
         {
-            var randomPosZ = UnityEngine.Random.Range(-5f, 5f);
-            var randomPosX = UnityEngine.Random.Range(-1f, 1f);
-            var newStartPos = item.Agent.GetInitialPosition() + new Vector3(randomPosX, 0f, randomPosZ);
-            var rot = UnityEngine.Random.Range(80.0f, 120.0f);
-            var newRot = Quaternion.Euler(0, rot, 0);
-
             item.Agent.transform.localPosition = newStartPos;
             item.Agent.transform.localRotation = newRot;
+        }
 
+        if (item.Rb != null)
+        {
             item.Rb.linearVelocity = Vector3.zero;
             item.Rb.angularVelocity = Vector3.zero;
         }
-
-        ResetBall();
-
-        CurrentTime = timeLimit;
-        timer = 0f;
-        elapsedTime = 0f;
-
-        IncrementIterationsCount();
     }
+
+    ResetBall();
+
+    CurrentTime = timeLimit;
+    timer = 0f;
+    elapsedTime = 0f;
+
+    IncrementIterationsCount();
+}
 
     public void SetTimeLimit(int limit)
     {

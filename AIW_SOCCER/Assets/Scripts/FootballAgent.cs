@@ -289,6 +289,8 @@ public class FootballAgent : Agent
     #region Event listeners
     public void HandleGoalScored(Net.OnGoalScoredEventArgs e)
     {
+        if (this == null) return; // stops calls on destroyed agents
+
         if (e.envID != cubeEntity.GetEnvID()) return;
 
         if (e.TeamScored == team)
